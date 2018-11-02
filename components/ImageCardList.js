@@ -11,9 +11,6 @@ class ChildWrapper extends Component {
         height: null,
         marginLeft: this.props.isFirst ? 20 : 5,
         marginRight: this.props.isLast ? 20 : 5,
-        // paddingLeft: this.props.isFirst ? 0 : 5,
-        // paddingRight: this.props.isLast ? 0 : 5,
-        backgroundColor: 'orange',
       }}>
         {this.props.children}
       </View>

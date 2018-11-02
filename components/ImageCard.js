@@ -10,7 +10,7 @@ const imageBackgroundStyle = {
   height: null,
 };
 
-export class ImageCard extends Component {
+export default class ImageCard extends Component {
   static propTypes = {
     height: PropTypes.number.isRequired,
     source: ImageSourceShape,

@@ -11,8 +11,12 @@ import {
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
-import { ImageCard } from '../components/ImageCard';
+import ImageCard from '../components/ImageCard';
 import { ImageCardList } from '../components/ImageCardList';
+import { withRoundedCorners } from '../components/RoundedCard';
+
+
+const RoundedImageCard = withRoundedCorners(ImageCard);
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -28,9 +32,9 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <ImageCardList>
-            <ImageCard height={200} source={imageSource} />
-            <ImageCard height={200} source={imageSource} />
-            <ImageCard height={200} source={imageSource} />
+            <RoundedImageCard height={200} source={imageSource} />
+            <RoundedImageCard height={200} source={imageSource} />
+            <RoundedImageCard height={200} source={imageSource} />
           </ImageCardList>
 
           <View style={styles.welcomeContainer}>
