@@ -32,7 +32,7 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <ImageCardList>
-            <RoundedImageCard height={200} source={imageSource} />
+            <RoundedImageCard height={200} source={require('../assets/images/launch1.gif')} />
             <RoundedImageCard height={200} source={imageSource} />
             <RoundedImageCard height={200} source={imageSource} />
           </ImageCardList>
