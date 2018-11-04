@@ -11,12 +11,9 @@ import {
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
-import ImageCard from '../components/ImageCard';
 import { ImageCardList } from '../components/ImageCardList';
-import { withRoundedCorners } from '../components/RoundedCard';
+import LaunchCard from '../components/LaunchCard';
 
-
-const RoundedImageCard = withRoundedCorners(ImageCard);
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -24,17 +21,25 @@ export default class HomeScreen extends React.Component {
   };
 
   render() {
-    const imageSource = {
-      uri: 'https://o.aolcdn.com/images/dims?quality=100&image_uri=http%3A%2F%2Fo.aolcdn.com%2Fhss%2Fstorage%2Fmidas%2Ffd65b8542f16f963bd555c8623ad52f4%2F205045607%2Fnasa-sls-rocket-tests-2017-03-13-01-ed.jpg&client=amp-blogside-v2&signature=e8774c377907d8ad5ecf547d7c63a17fca10ce2f',
-    };
-
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <ImageCardList>
-            <RoundedImageCard height={200} source={require('../assets/images/launch1.gif')} />
-            <RoundedImageCard height={200} source={imageSource} />
-            <RoundedImageCard height={200} source={imageSource} />
+            <LaunchCard
+              imageSource={require('../assets/images/launch1.gif')}
+              mission="Resupply ISS | Cygnus CRS NG-10"
+              rocket="Antares 230"
+            />
+            <LaunchCard
+              imageSource={require('../assets/images/launch2.gif')}
+              mission="Commercial Crew SpaceX"
+              rocket="SpaceX Falcon 9"
+            />
+            <LaunchCard
+              imageSource={require('../assets/images/launch3.gif')}
+              mission="Commercial Crew SpaceX"
+              rocket="SpaceX Falcon Heavy"
+            />
           </ImageCardList>
 
           <View style={styles.welcomeContainer}>

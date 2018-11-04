@@ -10,14 +10,25 @@ const imageBackgroundStyle = {
   height: null,
 };
 
+const overlayStyle = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  backgroundColor: 'black',
+  opacity: 0.6,
+};
+
 export default class ImageCard extends Component {
   static propTypes = {
     height: PropTypes.number.isRequired,
+    overlay: PropTypes.bool,
     source: ImageSourceShape,
   };
 
   render() {
-    const { height, source } = this.props;
+    const { height, overlay, source } = this.props;
 
     return (
       <View style={{
@@ -26,7 +37,8 @@ export default class ImageCard extends Component {
         height,
       }}>
         <ImageBackground source={source} style={imageBackgroundStyle}>
-          <Text>Inside</Text>
+          {overlay && <View style={overlayStyle} />}
+          {this.props.children}
         </ImageBackground>
       </View>
     );
