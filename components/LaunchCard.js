@@ -34,13 +34,13 @@ export default class LaunchCard extends PureComponent {
           {mission && (
             <Fragment>
               <Text style={{color: 'white', fontSize: 14}}>Mission</Text>
-              <Text style={{color: 'white', fontSize: 24, fontWeight: '500', marginBottom: 12}}>{mission}</Text>
+              <Text style={{color: 'white', fontSize: 20, fontWeight: '500', marginBottom: 12}}>{mission}</Text>
             </Fragment>
           )}
           {mission && (
             <Fragment>
               <Text style={{color: 'white', fontSize: 14}}>Rocket</Text>
-          <Text style={{color: 'white', fontSize: 24, fontWeight: '500'}}>{rocket}</Text>
+          <Text style={{color: 'white', fontSize: 20, fontWeight: '500'}}>{rocket}</Text>
             </Fragment>
           )}
         </View>

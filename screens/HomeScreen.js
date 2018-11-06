@@ -24,6 +24,9 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+          <View style={{marginHorizontal: 20, marginBottom: 12}}>
+            <Text style={{fontSize: 20, fontWeight: '700'}}>Upcoming launches</Text>
+          </View>
           <ImageCardList>
             <LaunchCard
               imageSource={require('../assets/images/launch1.gif')}
@@ -132,7 +135,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   contentContainer: {
-    paddingTop: 30,
+    paddingTop: 10,
   },
   welcomeContainer: {
     alignItems: 'center',
