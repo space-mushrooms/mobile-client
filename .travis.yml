@@ -4,3 +4,4 @@ before_script:
   - npm install -g expo-cli
   - expo login -u "${EXPO_LOGIN}" -p "${EXPO_PASSWORD}"
 script: expo publish
+after_script: curl -X POST "https://api.telegram.org/bot${TELEGRAM_TRAVIS_BOT_TOKEN}/sendMessage" -d "chat_id=${TELEGRAM_CHAT_ID}" -d "text=Your build finished"
