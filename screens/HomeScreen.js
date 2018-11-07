@@ -24,7 +24,7 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={{marginHorizontal: 20, marginBottom: 12}}>
+          <View style={{marginHorizontal: 20, marginBottom: 12, marginTop: 12}}>
             <Text style={{fontSize: 20, fontWeight: '700'}}>Upcoming launches</Text>
           </View>
           <ImageCardList>
