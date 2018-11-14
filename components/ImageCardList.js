@@ -18,13 +18,6 @@ class ChildWrapper extends Component {
   }
 }
 
-const wrapperStyle = {
-  // flexDirection: 'row',
-  // justifyContent: 'space-between',
-  // alignItems: 'stretch',
-  // flex: 1,
-};
-
 const scrollViewStyle = {
   // paddingLeft: 20,
   // paddingRight: 20,
@@ -44,7 +37,7 @@ export class ImageCardList extends Component {
     const itemWidth = width - 20 * 2;
 
     return (
-      <View style={wrapperStyle}>
+      <View style={this.props.style}>
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -52,7 +45,6 @@ export class ImageCardList extends Component {
           scrollEventThrottle={32}
           decelerationRate="fast"
           snapToAlignment="start"
-
           contentContainerStyle={scrollViewStyle}
         >
           {this.props.children.map((child, index) => (

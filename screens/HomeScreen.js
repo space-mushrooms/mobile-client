@@ -13,7 +13,11 @@ import { WebBrowser } from 'expo';
 import { MonoText } from '../components/StyledText';
 import { ImageCardList } from '../components/ImageCardList';
 import LaunchCard from '../components/LaunchCard';
+import ImageCard from '../components/ImageCard';
+import { withRoundedCorners } from '../components/RoundedCard';
 
+
+const RoundedImageCard = withRoundedCorners(ImageCard);
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -44,6 +48,21 @@ export default class HomeScreen extends React.Component {
               rocket="SpaceX Falcon Heavy"
             />
           </ImageCardList>
+
+          <View style={{marginHorizontal: 20, marginBottom: 12, marginTop: 24}}>
+            <Text style={{fontSize: 20, fontWeight: '700'}}>Launch Vehicles</Text>
+          </View>
+          <View style={{marginHorizontal: 20}}>
+            <RoundedImageCard
+              height={150}
+              overlay
+              source={require('../assets/images/rocket.jpg')}
+            >
+              <View style={{flex: 1, padding: 10, justifyContent: 'flex-end'}}>
+                <Text style={{color: '#FFF', fontSize: 20, fontWeight: '500'}}>From a sounding rocket to a super-heavy lift vehicle</Text>
+              </View>
+            </RoundedImageCard>>
+          </View>
 
           <View style={styles.welcomeContainer}>
             <Image
