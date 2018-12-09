@@ -1,10 +1,7 @@
 import React, { Fragment, PureComponent } from 'react';
-import { Text, View } from 'react-native';
-import PropTypes from 'prop-types';
-import { ImageSource as ImageSourceShape } from '../shapes';
+import { Text, View, ImageSourcePropType } from 'react-native';
 import ImageCard from '../components/ImageCard';
 import { withRoundedCorners } from '../components/RoundedCard';
-
 
 const RoundedImageCard = withRoundedCorners(ImageCard); 
 
@@ -13,13 +10,13 @@ const wrapperStyle = {
   paddingVertical: 28,
 };
 
-export default class LaunchCard extends PureComponent {
-  static propTypes = {
-    imageSource: ImageSourceShape,
-    mission: PropTypes.string.isRequired,
-    rocket: PropTypes.string.isRequired,
-  };
+export interface Props {
+  imageSource: ImageSourcePropType;
+  mission: string;
+  rocket: string;
+}
 
+export default class LaunchCard extends PureComponent<Props> {
   static defaultProps = {
     mission: '',
     rocket: '',
