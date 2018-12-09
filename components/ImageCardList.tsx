@@ -1,14 +1,23 @@
-import React, { Component } from 'react';
-import { Dimensions, ScrollView, Text, View } from 'react-native';
-import { red } from 'ansi-colors';
+import React, { Component, Children, ReactNode } from 'react';
+import {
+  Dimensions,
+  ScrollView,
+  View,
+  StyleProp,
+  ViewStyle,
+} from 'react-native';
 
+export interface ChildWrapperProps {
+  width: number;
+  isFirst: boolean;
+  isLast: boolean;
+}
 
-class ChildWrapper extends Component {
+class ChildWrapper extends Component<ChildWrapperProps> {
   render() {
     return (
       <View style={{
         width: this.props.width,
-        height: null,
         marginLeft: this.props.isFirst ? 20 : 5,
         marginRight: this.props.isLast ? 20 : 5,
       }}>
@@ -24,14 +33,18 @@ const scrollViewStyle = {
   // flex: 1,
 };
 
-const contentInset = {
-  top: 0,
-  bottom: 0,
-  left: 10,
-  right: 10,
-};
+// const contentInset = {
+//   top: 0,
+//   bottom: 0,
+//   left: 10,
+//   right: 10,
+// };
 
-export class ImageCardList extends Component {
+export interface Props {
+  style?: StyleProp<ViewStyle>;
+}
+
+export class ImageCardList extends Component<Props> {
   render() {
     const {width} = Dimensions.get('window');
     const itemWidth = width - 20 * 2;
@@ -47,11 +60,11 @@ export class ImageCardList extends Component {
           snapToAlignment="start"
           contentContainerStyle={scrollViewStyle}
         >
-          {this.props.children.map((child, index) => (
+          {Children.map(this.props.children, (child, index) => (
             <ChildWrapper
               width={itemWidth}
               isFirst={index === 0}
-              isLast={index === this.props.children.length - 1}
+              isLast={index === (this.props.children as ReactNode[]).length - 1}
               key={index}
             >
               {child}

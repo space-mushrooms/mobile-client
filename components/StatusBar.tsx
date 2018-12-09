@@ -1,14 +1,18 @@
 import React from 'react';
 import {
-  StyleSheet,
   View,
   StatusBar,
   Platform,
+  StatusBarProps,
 } from 'react-native';
 
 const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 20 : StatusBar.currentHeight;
 
-export default ({backgroundColor, ...props}) => (
+export interface Props {
+  backgroundColor: string;
+}
+
+export default ({backgroundColor, ...props}: Props & StatusBarProps) => (
   <View style={{
     backgroundColor,
     height: STATUSBAR_HEIGHT,

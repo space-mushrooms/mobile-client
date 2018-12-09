@@ -61,7 +61,7 @@ export default class HomeScreen extends React.Component {
               <View style={{flex: 1, padding: 10, justifyContent: 'flex-end'}}>
                 <Text style={{color: '#FFF', fontSize: 20, fontWeight: '500'}}>From a sounding rocket to a super-heavy lift vehicle</Text>
               </View>
-            </RoundedImageCard>>
+            </RoundedImageCard>
           </View>
 
           <View style={styles.welcomeContainer}>
@@ -190,14 +190,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
     ...Platform.select({
       ios: {
         shadowColor: 'black',
-        shadowOffset: { height: -3 },
+        shadowOffset: { height: -3, width: 0 },
         shadowOpacity: 0.1,
         shadowRadius: 3,
       },
@@ -205,6 +201,10 @@ const styles = StyleSheet.create({
         elevation: 20,
       },
     }),
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
     alignItems: 'center',
     backgroundColor: '#fbfbfb',
     paddingVertical: 20,

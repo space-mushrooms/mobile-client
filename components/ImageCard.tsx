@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
-import { ImageBackground, Text, View } from 'react-native';
-import PropTypes from 'prop-types';
-import { ImageSource as ImageSourceShape } from '../shapes';
-
+import { ImageBackground, View, ImageSourcePropType, ViewStyle } from 'react-native';
 
 const imageBackgroundStyle = {
   flex: 1,
-  width: null,
-  height: null,
 };
 
-const overlayStyle = {
+const overlayStyle: ViewStyle = {
   position: 'absolute',
   top: 0,
   left: 0,
@@ -20,20 +15,19 @@ const overlayStyle = {
   opacity: 0.6,
 };
 
-export default class ImageCard extends Component {
-  static propTypes = {
-    height: PropTypes.number.isRequired,
-    overlay: PropTypes.bool,
-    source: ImageSourceShape,
-  };
+export interface Props {
+  height: number;
+  overlay?: boolean;
+  source: ImageSourcePropType;
+};
 
+export default class ImageCard extends Component<Props> {
   render() {
     const { height, overlay, source } = this.props;
 
     return (
       <View style={{
         flex: 1,
-        width: null,
         height,
       }}>
         <ImageBackground source={source} style={imageBackgroundStyle}>
